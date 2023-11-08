@@ -1,140 +1,23 @@
-<div class="user-container-main">
+<div class="user-container-main" *ngIf="user">
     <div class="user-container">
-        <img src="assets/images/profile.jpg" alt="image not present" id="profile-image">
+        <img [src]="user.avatar_url" alt="image not present" id="profile-image">
         <div class="user-info">
-            <p id="user-name">John Doe</p>
-            <p id="user-description">Computer Engineer At Smt Kashibai Navale College Of Engineering</p>
-            <p id="user-location"><img id="user-location-icon" src="assets/images/location.png">Orlando</p>
-            <p id="user-twitter">Twitter: twitter profile link</p>
+            <p id="user-name">{{user.name}}</p>
+            <p id="user-description">{{user.bio}}</p>
+            <p id="user-location" *ngIf="user.location"><img id="user-location-icon" loading="lazy" src="assets/images/location.png">{{user.location}}</p>
+            <p id="user-twitter" *ngIf="user.twitter_username">Twitter: {{user.twitter_username}}</p>
         </div>
     </div>
-    <p id="user-github"><img id="copy-icon" src="assets/images/copy.png" alt="">https://github.com/abhishek9373</p>
+    <p id="user-github"><img id="copy-icon" src="assets/images/copy.png" loading="lazy" alt="">{{user.html_url}}</p>
 </div>
 <div class="repo-container">
-    <div class="repo">
-        <p id="repo-name">Campus-Backend</p>
-        <p id="repo-description">campus is a centralized platform for all services.</p>
-        <div class="repo-languages-container">
-            <div class="repo-language">javascript</div>
-            <div class="repo-language">angular</div>
-            <div class="repo-language">c++</div>
-        </div>
-    </div>
-    <div class="repo">
-        <p id="repo-name">Campus-Backend</p>
-        <p id="repo-description">campus is a centralized platform for all services.</p>
-        <div class="repo-languages-container">
-            <div class="repo-language">javascript</div>
-            <div class="repo-language">angular</div>
-            <div class="repo-language">c++</div>
-        </div>
-    </div>
-    <div class="repo">
-        <p id="repo-name">Campus-Backend</p>
-        <p id="repo-description">campus is a centralized platform for all services.</p>
-        <div class="repo-languages-container">
-            <div class="repo-language">javascript</div>
-            <div class="repo-language">angular</div>
-            <div class="repo-language">c++</div>
-        </div>
-    </div>
-    <div class="repo">
-        <p id="repo-name">Campus-Backend</p>
-        <p id="repo-description">campus is a centralized platform for all services.</p>
-        <div class="repo-languages-container">
-            <div class="repo-language">javascript</div>
-            <div class="repo-language">angular</div>
-            <div class="repo-language">c++</div>
-        </div>
-    </div>
-    <div class="repo">
-        <p id="repo-name">Campus-Backend</p>
-        <p id="repo-description">campus is a centralized platform for all services.</p>
-        <div class="repo-languages-container">
-            <div class="repo-language">javascript</div>
-            <div class="repo-language">angular</div>
-            <div class="repo-language">c++</div>
-        </div>
-    </div>
-    <div class="repo">
-        <p id="repo-name">Campus-Backend</p>
-        <p id="repo-description">campus is a centralized platform for all services.</p>
-        <div class="repo-languages-container">
-            <div class="repo-language">javascript</div>
-            <div class="repo-language">angular</div>
-            <div class="repo-language">c++</div>
-        </div>
-    </div>
-    <div class="repo">
-        <p id="repo-name">Campus-Backend</p>
-        <p id="repo-description">campus is a centralized platform for all services.</p>
-        <div class="repo-languages-container">
-            <div class="repo-language">javascript</div>
-            <div class="repo-language">angular</div>
-            <div class="repo-language">c++</div>
-        </div>
-    </div>
-    <div class="repo">
-        <p id="repo-name">Campus-Backend</p>
-        <p id="repo-description">campus is a centralized platform for all services.</p>
-        <div class="repo-languages-container">
-            <div class="repo-language">javascript</div>
-            <div class="repo-language">angular</div>
-            <div class="repo-language">c++</div>
-        </div>
-    </div>
-    <div class="repo">
-        <p id="repo-name">Campus-Backend</p>
-        <p id="repo-description">campus is a centralized platform for all services.</p>
-        <div class="repo-languages-container">
-            <div class="repo-language">javascript</div>
-            <div class="repo-language">angular</div>
-            <div class="repo-language">c++</div>
-        </div>
-    </div>
-    <div class="repo">
-        <p id="repo-name">Campus-Backend</p>
-        <p id="repo-description">campus is a centralized platform for all services.</p>
-        <div class="repo-languages-container">
-            <div class="repo-language">javascript</div>
-            <div class="repo-language">angular</div>
-            <div class="repo-language">c++</div>
-        </div>
-    </div>
-    <div class="repo">
-        <p id="repo-name">Campus-Backend</p>
-        <p id="repo-description">campus is a centralized platform for all services.</p>
-        <div class="repo-languages-container">
-            <div class="repo-language">javascript</div>
-            <div class="repo-language">angular</div>
-            <div class="repo-language">c++</div>
-        </div>
-    </div>
-    <div class="repo">
-        <p id="repo-name">Campus-Backend</p>
-        <p id="repo-description">campus is a centralized platform for all services.</p>
-        <div class="repo-languages-container">
-            <div class="repo-language">javascript</div>
-            <div class="repo-language">angular</div>
-            <div class="repo-language">c++</div>
-        </div>
-    </div>
-    <div class="repo">
-        <p id="repo-name">Campus-Backend</p>
-        <p id="repo-description">campus is a centralized platform for all services.</p>
-        <div class="repo-languages-container">
-            <div class="repo-language">javascript</div>
-            <div class="repo-language">angular</div>
-            <div class="repo-language">c++</div>
-        </div>
-    </div>
-    <div class="repo">
-        <p id="repo-name">Campus-Backend</p>
-        <p id="repo-description">campus is a centralized platform for all services.</p>
-        <div class="repo-languages-container">
-            <div class="repo-language">javascript</div>
-            <div class="repo-language">angular</div>
-            <div class="repo-language">c++</div>
+    <div class="repo" *ngFor="let repo of repos">
+        <p id="repo-name">{{repo.name}}</p>
+        <p id="repo-description">{{repo.description}}</p>
+        <div class="repo-languages-container" *ngIf="repo.language">
+            <div class="repo-language">{{repo.language}}</div>
+            <!-- <div class="repo-language">angular</div>
+            <div class="repo-language">c++</div> -->
         </div>
     </div>
 </div>
@@ -158,3 +41,19 @@
         <p class="newer old-new">Newer<span class="arrows new">&#8594;</span></p>
     </div>
 </div>
+
+
+
+
+<!--
+<div class="repo-container">
+  <div class="repo">
+      <p id="repo-name">Campus-Backend</p>
+      <p id="repo-description">campus is a centralized platform for all services.</p>
+      <div class="repo-languages-container">
+          <div class="repo-language">javascript</div>
+          <div class="repo-language">angular</div>
+          <div class="repo-language">c++</div>
+      </div>
+  </div>
+</div> -->
