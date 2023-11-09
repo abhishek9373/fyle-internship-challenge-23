@@ -10,12 +10,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { TruncateTextPipe } from './core/pipes/truncate-text.pipe';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     UserComponent,
-    TruncateTextPipe
+    TruncateTextPipe,
   ],
   imports: [
     BrowserModule,
