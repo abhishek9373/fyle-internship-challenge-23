@@ -7,7 +7,7 @@ describe('AppComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule], // Add RouterTestingModule here
+      imports: [RouterTestingModule],
       declarations: [AppComponent],
     });
 
@@ -30,5 +30,4 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('.content span').textContent).toContain('fyle-frontend-challenge');
   });
 
-  // Add more tests as needed
 });

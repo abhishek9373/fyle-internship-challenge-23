@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ApiService } from './services/api.service';
+import { UserService } from './core/services/user.service';
+
 
 @Component({
   selector: 'app-root',
@@ -7,9 +8,10 @@ import { ApiService } from './services/api.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent{
+  title: string = "Document"
+
   constructor(
-    private apiService: ApiService
+    private userService: UserService
   ) {}
 
-  title: string = "repo-by-username"
 }
