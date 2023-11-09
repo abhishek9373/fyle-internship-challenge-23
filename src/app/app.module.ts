@@ -8,11 +8,14 @@ import { UserComponent } from './components/user/user.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { TruncateTextPipe } from './core/pipes/truncate-text.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     UserComponent,
+    TruncateTextPipe
   ],
   imports: [
     BrowserModule,

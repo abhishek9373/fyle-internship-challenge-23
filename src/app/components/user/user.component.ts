@@ -16,7 +16,7 @@ export class UserComponent implements OnInit {
   userName!: string;
   userRepoCount!: number;
   repos!: Array<Repo> | [];
-  page!: number | 1;
+  page: number = 1;
   perPage: number = 10;
   totalPages!: number;
   pageArray!: Array<number>;
@@ -88,6 +88,20 @@ export class UserComponent implements OnInit {
 
   goBack(){
     this.router.navigate(['']);
+  }
+
+  // change page by previous and next button
+
+  prevPage(){
+    if(this.page > 1){
+      this.changePage(this.page-1);
+    }
+  }
+
+  nextPage(){
+    if(this.page < this.totalPages){
+      this.changePage(this.page+1);
+    }
   }
 
 }

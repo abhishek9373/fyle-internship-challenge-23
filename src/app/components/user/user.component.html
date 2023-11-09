@@ -3,7 +3,7 @@
         <img [src]="user.avatar_url" alt="image not present" id="profile-image">
         <div class="user-info">
             <p id="user-name">{{user.name}}</p>
-            <p id="user-description">{{user.bio}}</p>
+            <p id="user-description">{{user.bio | truncateText}}</p>
             <p id="user-location" *ngIf="user.location"><img id="user-location-icon" loading="lazy" src="assets/images/location.png">{{user.location}}</p>
             <p id="user-twitter" *ngIf="user.twitter_username">Twitter: {{user.twitter_username}}</p>
         </div>
@@ -14,7 +14,7 @@
 <div class="repo-container">
     <div class="repo" *ngFor="let repo of repos">
         <p id="repo-name">{{repo.name}}</p>
-        <p id="repo-description">{{repo.description}}</p>
+        <p id="repo-description">{{repo.description | truncateText}}</p>
         <div class="repo-languages-container" *ngIf="repo.language">
             <div class="repo-language">{{repo.language}}</div>
             <!-- <div class="repo-language">angular</div>
@@ -25,9 +25,9 @@
 
 <div class="pagination-container">
   <div class="page-number-container">
-    <div id="page-number"><<</div>
+    <div id="page-number" (click)="prevPage()"><<</div>
     <div id="page-number" *ngFor="let p of pageArray; let firstIteration = first; let lastIteration = last; let i= index" (click)="changePage(i+1)">{{i + 1}}</div>
-    <div id="page-number">>></div>
+    <div id="page-number" (click)="nextPage()">>></div>
   </div>
 
   <div class="older-newer-page">
