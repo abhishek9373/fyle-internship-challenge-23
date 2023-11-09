@@ -19,7 +19,7 @@ export class UserComponent implements OnInit {
   page!: number | 1;
   perPage: number = 10;
   totalPages!: number;
-  publicReposArray!: Array<number>;
+  pageArray!: Array<number>;
 
   constructor(private router: Router, private activatedRoutes: ActivatedRoute, private userService: UserService, private userRepoService: UserRepositoryService) { }
 
@@ -36,8 +36,9 @@ export class UserComponent implements OnInit {
               this.user = data;
               this.userRepoCount = data.public_repos;
               // update pagination array
-              this.totalPages = Math.ceil(this.userRepoCount / this.perPage);
-              this.publicReposArray = Array(this.totalPages).fill(0).map((x, i) => i);
+            this.totalPages = Math.ceil(this.userRepoCount / this.perPage);
+              const count: number = (this.totalPages > 9) ? 9 : this.totalPages;
+              this.pageArray = Array(count).fill(0).map((x, i) => i);
             }
           });
         }
@@ -53,7 +54,8 @@ export class UserComponent implements OnInit {
         if(params['per_page']){
           this.perPage = parseInt(params.per_page);
           this.totalPages = Math.ceil(this.userRepoCount / this.perPage);
-          this.publicReposArray = Array(this.totalPages).fill(0).map((x, i) => i);
+          const count: number = (this.totalPages > 9) ? 9 : this.totalPages;
+          this.pageArray = Array(count).fill(0).map((x, i) => i);
         }
       });
 

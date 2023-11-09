@@ -26,7 +26,7 @@
 <div class="pagination-container">
   <div class="page-number-container">
     <div id="page-number"><<</div>
-    <div id="page-number" *ngFor="let p of publicReposArray; let firstIteration = first; let lastIteration = last; let i= index" (click)="changePage(i+1)">{{i + 1}}</div>
+    <div id="page-number" *ngFor="let p of pageArray; let firstIteration = first; let lastIteration = last; let i= index" (click)="changePage(i+1)">{{i + 1}}</div>
     <div id="page-number">>></div>
   </div>
 
