@@ -34,9 +34,9 @@ export class UserComponent implements OnInit {
               window.alert('User not found');
             } else {
               this.user = data;
-              this.userRepoCount = data.public_repos;
+              this.userRepoCount = this.user.public_repos;
               // update pagination array
-            this.totalPages = Math.ceil(this.userRepoCount / this.perPage);
+              this.totalPages = Math.ceil(this.userRepoCount / this.perPage);
               const count: number = (this.totalPages > 9) ? 9 : this.totalPages;
               this.pageArray = Array(count).fill(0).map((x, i) => i);
             }
@@ -76,8 +76,15 @@ export class UserComponent implements OnInit {
       if(this.page === newPage){
         return;
       }
+      const currentParams = { ...this.activatedRoutes.snapshot.queryParams };
+      currentParams['page'] = newPage;
+      this.router.navigate([], {
+        relativeTo: this.activatedRoutes,
+        queryParams: currentParams,
+        queryParamsHandling: 'merge'
+      })
       this.page = newPage;
-      this.userRepoService.getRepositoriesOfTheUser(this.userName, this.page, this.perPage).subscribe((data: Array<Repo>)=>{
+      this.userRepoService.getRepositoriesOfTheUser(this.userName, this.page, this.perPage | 12).subscribe((data: Array<Repo>)=>{
         this.repos = data;
       })
 
