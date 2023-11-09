@@ -203,3 +203,55 @@
 ::-webkit-scrollbar-thumb {
 	background: grey;
 }
+
+
+/* user.component.scss */
+
+.pagination-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+
+  .pagination-controls {
+    margin-right: 20px;
+  }
+
+  .page-numbers {
+    display: flex;
+    gap: 10px;
+
+    span {
+      cursor: pointer;
+      padding: 5px 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+
+      &.current-page {
+        background-color: #007bff;
+        color: #fff;
+        border-color: #007bff;
+      }
+    }
+  }
+}
+
+
+/* Add this style to user.component.scss */
+
+.repo {
+  /* Your existing repo card styling */
+
+  &.skeleton {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+
+    .skeleton-gif {
+      width: 100%; /* Adjust width as needed */
+    }
+  }
+}
+

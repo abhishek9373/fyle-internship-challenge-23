@@ -1,35 +1,44 @@
 <div class="user-container-main" *ngIf="user">
-    <div class="user-container">
-        <img [src]="user.avatar_url" alt="image not present" id="profile-image">
-        <div class="user-info">
-            <p id="user-name">{{user.name}}</p>
-            <p id="user-description">{{user.bio | truncateText}}</p>
-            <p id="user-location" *ngIf="user.location"><img id="user-location-icon" loading="lazy" src="assets/images/location.png">{{user.location}}</p>
-            <p id="user-twitter" *ngIf="user.twitter_username">Twitter: {{user.twitter_username}}</p>
-        </div>
+  <div class="user-container">
+    <img [src]="user.avatar_url" alt="image not present" id="profile-image">
+    <div class="user-info">
+      <p id="user-name">{{user.name}}</p>
+      <p id="user-description">{{user.bio | truncateText}}</p>
+      <p id="user-location" *ngIf="user.location"><img id="user-location-icon" loading="lazy" src="assets/images/location.png">{{user.location}}</p>
+      <p id="user-twitter" *ngIf="user.twitter_username">Twitter: {{user.twitter_username}}</p>
     </div>
-    <p id="user-github"><img id="copy-icon" src="assets/images/copy.png" loading="lazy" alt="">{{user.html_url}}</p>
-    <div id="go-back" (click)="goBack()">change username</div>
+  </div>
+  <p id="user-github"><img id="copy-icon" src="assets/images/copy.png" loading="lazy" alt="">{{user.html_url}}</p>
+  <div id="go-back" (click)="goBack()">change username</div>
 </div>
 <div class="repo-container">
+  <ng-container *ngIf="loading; else reposContent">
+    <!-- Skeleton loader template -->
+      <img src="assets/loaders/skeleton-loader.gif" alt="Skeleton Loader" class="repo">
+      <img src="assets/loaders/skeleton-loader.gif" alt="Skeleton Loader" class="repo">
+      <img src="assets/loaders/skeleton-loader.gif" alt="Skeleton Loader" class="repo">
+      <img src="assets/loaders/skeleton-loader.gif" alt="Skeleton Loader" class="repo">
+  </ng-container>
+  <ng-template #reposContent>
+    <!-- Actual repo content -->
     <div class="repo" *ngFor="let repo of repos">
-        <p id="repo-name">{{repo.name}}</p>
-        <p id="repo-description">{{repo.description | truncateText}}</p>
-        <div class="repo-languages-container" *ngIf="repo.language">
-            <div class="repo-language">{{repo.language}}</div>
-        </div>
+      <p id="repo-name">{{repo.name}}</p>
+      <p id="repo-description">{{repo.description | truncateText}}</p>
+      <div class="repo-languages-container" *ngIf="repo.language">
+        <div class="repo-language">{{repo.language}}</div>
+      </div>
     </div>
+  </ng-template>
 </div>
 
+<!-- Pagination container with updated styling -->
 <div class="pagination-container">
-  <div class="page-number-container">
-    <div id="page-number" (click)="prevPage()"><<</div>
-    <div id="page-number" *ngFor="let p of pageArray; let firstIteration = first; let lastIteration = last; let i= index" (click)="changePage(i+1)" [ngClass]="{'current-page': (i+1)===page, 'different-page': !((i+1)==page)}">{{i + 1}}</div>
-    <div id="page-number" (click)="nextPage()">>></div>
-  </div>
-
-  <div class="older-newer-page">
-      <p class="older old-new"><span class="arrows old">&#8592;</span>Older</p>
-      <p class="newer old-new">Newer<span class="arrows new">&#8594;</span></p>
+  <div class="page-numbers">
+    <span *ngFor="let p of currentPageArray; let i = index"
+      [ngClass]="{'current-page': i === page - 1, 'different-page': !(i === page - 1)}"
+      (click)="changePage(p)">
+      {{ p }}
+    </span>
   </div>
 </div>
+
