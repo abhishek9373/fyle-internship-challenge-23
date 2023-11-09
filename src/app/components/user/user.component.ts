@@ -4,6 +4,8 @@ import { Repo } from 'src/app/core/interfaces/Repo.interface';
 import { User } from 'src/app/core/interfaces/User.interface';
 import { UserRepositoryService } from 'src/app/core/services/user-repository.service';
 import { UserService } from 'src/app/core/services/user.service';
+import { FormControl } from '@angular/forms';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-user',
@@ -21,6 +23,9 @@ export class UserComponent implements OnInit {
   totalPages: number = 1;
   currentPageArray: number[] = [];
   loading: boolean = true;
+
+  perPageControl = new FormControl(this.perPage);
+
 
   constructor(
     private router: Router,
@@ -57,6 +62,29 @@ export class UserComponent implements OnInit {
         this.perPage = parseInt(params.per_page);
       }
     });
+
+    this.activatedRoutes.queryParams.subscribe((params: any) => {
+      if (params && params['page']) {
+        this.page = parseInt(params['page']);
+      } else {
+        this.page = 1;
+      }
+      if (params['per_page']) {
+        this.perPage = parseInt(params.per_page);
+        this.perPageControl.setValue(this.perPage);
+      }
+    });
+
+    // Listen to changes in the perPageControl value
+    this.perPageControl.valueChanges.pipe(debounceTime(300)).subscribe((value: any) => {
+      this.perPage = value;
+      this.fetchRepositories();
+    });
+
+  }
+
+  changePerPage() {
+    this.fetchRepositories();
   }
 
   changePage(newPage: number) {

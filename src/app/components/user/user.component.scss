@@ -10,6 +10,8 @@
 	align-items: center;
 	z-index: 10;
   margin-top: 10px;
+  display: flex;
+  align-items: center;
 }
 .user-info {
 	margin-left: 30px;
@@ -35,9 +37,27 @@
   z-index: 999;
 }
 
+#change-per-page{
+  position: fixed;
+  top: 12px;
+  right: 200px;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: medium;
+  color: rgb(122, 122, 252);
+  font-weight: 500;
+  cursor: pointer;
+  background-color: white;
+  z-index: 999;
+}
+
+
 #user-name {
 	font-size: 25px;
 	font-weight: 600;
+}
+.user-github {
+  margin-left: auto;
 }
 #user-description {
 	margin-top: 8px;
@@ -78,7 +98,25 @@
 	width: 380px;
 }
 
-.repo {
+.repos-per-page-dropdown {
+  position: fixed;
+
+}
+
+label {
+  margin-right: 8px;
+}
+
+select {
+  padding: 6px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+}
+
+.repo-skl {
 	padding: 10px;
 	border-radius: 4px;
 	padding-top: 5px;
