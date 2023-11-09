@@ -9,6 +9,7 @@
         </div>
     </div>
     <p id="user-github"><img id="copy-icon" src="assets/images/copy.png" loading="lazy" alt="">{{user.html_url}}</p>
+    <div id="go-back" (click)="goBack()">change username</div>
 </div>
 <div class="repo-container">
     <div class="repo" *ngFor="let repo of repos">
@@ -23,23 +24,16 @@
 </div>
 
 <div class="pagination-container">
-    <div class="page-number-container">
-        <div id="page-number"><<</div>
-        <div id="page-number">1</div>
-        <div id="page-number">2</div>
-        <div id="page-number">3</div>
-        <div id="page-number">4</div>
-        <div id="page-number">5</div>
-        <div id="page-number">6</div>
-        <div id="page-number">7</div>
-        <div id="page-number">8</div>
-        <div id="page-number">9</div>
-        <div id="page-number">>></div>
-    </div>
-    <div class="older-newer-page">
-        <p class="older old-new"><span class="arrows old">&#8592;</span>Older</p>
-        <p class="newer old-new">Newer<span class="arrows new">&#8594;</span></p>
-    </div>
+  <div class="page-number-container">
+    <div id="page-number"><<</div>
+    <div id="page-number" *ngFor="let p of publicReposArray; let firstIteration = first; let lastIteration = last; let i= index" (click)="changePage(i+1)">{{i + 1}}</div>
+    <div id="page-number">>></div>
+  </div>
+
+  <div class="older-newer-page">
+      <p class="older old-new"><span class="arrows old">&#8592;</span>Older</p>
+      <p class="newer old-new">Newer<span class="arrows new">&#8594;</span></p>
+  </div>
 </div>
 
 

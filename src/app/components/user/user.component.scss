@@ -20,6 +20,18 @@
 	background-color: black;
 	border-radius: 50%;
 }
+
+#go-back{
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  padding: 5px;
+  font-size: medium;
+  color: rgb(122, 122, 252);
+  font-weight: 500;
+  cursor: pointer;
+}
+
 #user-name {
 	font-size: 25px;
 	font-weight: 600;
