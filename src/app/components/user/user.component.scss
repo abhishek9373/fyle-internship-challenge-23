@@ -76,7 +76,7 @@
 	padding-bottom: 15px;
 	z-index: 998;
 	width: 380px;
-  max-height: 180px;
+  // max-height: 210px;
 }
 .repo-container {
 	background-color: white;
@@ -247,10 +247,33 @@
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 
-    .skeleton-gif {
-      width: 100%; /* Adjust width as needed */
+    .skeleton-shape {
+      height: 15px;
+      background-color: #e0e0e0;
+      margin-bottom: 10px;
+    }
+  }
+
+  .repo-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+
+    .repo-info-item {
+      display: flex;
+      align-items: center;
+
+      img {
+        margin-right: 5px;
+        width: 16px; // Adjust the width as needed
+        height: 16px; // Adjust the height as needed
+      }
+
+      span {
+        font-size: 14px;
+      }
     }
   }
 }

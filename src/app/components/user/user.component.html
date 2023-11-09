@@ -2,7 +2,7 @@
   <div class="user-container">
     <img [src]="user.avatar_url" alt="image not present" id="profile-image">
     <div class="user-info">
-      <p id="user-name">{{user.name}}</p>
+      <p id="user-name">{{user.name | truncateText}}</p>
       <p id="user-description">{{user.bio | truncateText}}</p>
       <p id="user-location" *ngIf="user.location"><img id="user-location-icon" loading="lazy" src="assets/images/location.png">{{user.location}}</p>
       <p id="user-twitter" *ngIf="user.twitter_username">Twitter: {{user.twitter_username}}</p>
@@ -30,10 +30,33 @@
   <ng-template #reposContent>
     <!-- Actual repo content -->
     <div class="repo" *ngFor="let repo of repos">
-      <p id="repo-name">{{repo.name}}</p>
-      <p id="repo-description">{{repo.description | truncateText}}</p>
+      <p id="repo-name">{{repo.name | truncateText}}</p>
+      <ng-container *ngIf="repo.description; else noDescription">
+        <p id="repo-description">{{repo.description | truncateText}}</p>
+      </ng-container>
+      <ng-template #noDescription>
+        <p id="repo-description">No description available.</p>
+      </ng-template>
       <div class="repo-languages-container" *ngIf="repo.language">
         <div class="repo-language">{{repo.language}}</div>
+      </div>
+      <div class="repo-info">
+        <div class="repo-info-item">
+          <img src="assets/images/fork.png" alt="Fork Icon">
+          <span>{{repo.forks_count}}</span>
+        </div>
+        <div class="repo-info-item">
+          <img src="assets/images/created.png" alt="Calendar Icon">
+          <span>{{repo.created_at | date:'short'}}</span>
+        </div>
+        <div class="repo-info-item">
+          <img src="assets/images/star.png" alt="Star Icon">
+          <span>Stars: {{repo.stargazers_count}}</span>
+        </div>
+        <div class="repo-info-item">
+          <img src="assets/images/issue.png" alt="Issue Icon">
+          <span>Open Issues: {{repo.open_issues_count}}</span>
+        </div>
       </div>
     </div>
   </ng-template>
