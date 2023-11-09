@@ -23,13 +23,16 @@
 
 #go-back{
   position: fixed;
-  top: 50px;
-  right: 50px;
-  padding: 5px;
+  top: 12px;
+  right: 20px;
+  padding: 10px;
+  border-radius: 5px;
   font-size: medium;
   color: rgb(122, 122, 252);
   font-weight: 500;
   cursor: pointer;
+  background-color: white;
+  z-index: 999;
 }
 
 #user-name {
@@ -132,7 +135,6 @@
 	border-right: none;
 	padding-left: 10px;
 	padding-right: 10px;
-	color: rgb(122, 122, 252);
 	font-weight: bold;
 	cursor: pointer;
 	&:last-child {
@@ -178,6 +180,17 @@
 	padding-left: 12px;
 	padding-right: 8px;
 }
+
+.current-page{
+  background-color: rgb(122, 122, 252);
+  color: white;
+}
+
+.different-page{
+  background-color: white;
+  color: rgb(122, 122, 252);
+}
+
 ::-webkit-scrollbar {
 	width: 7px;
 	height: 100vh;
