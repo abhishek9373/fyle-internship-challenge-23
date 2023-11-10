@@ -47,6 +47,7 @@
     <!-- Actual repo content -->
     <div class="repo" *ngFor="let repo of repos">
       <p id="repo-name">{{repo.name | truncateText}}</p>
+      <a id="repo-link" [href]="repo.html_url" target="_blank">{{repo.html_url}}</a>
       <ng-container *ngIf="repo.description; else noDescription">
         <p id="repo-description">{{repo.description | truncateText}}</p>
       </ng-container>

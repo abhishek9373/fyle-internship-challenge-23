@@ -140,6 +140,12 @@ select {
 	font-size: 22px;
 	font-weight: 600;
 }
+#repo-link{
+  text-decoration: underline;
+	cursor: pointer;
+  font-size: small;
+  color: #538dca;
+}
 #repo-description {
 	font-size: smaller;
 	font-weight: 500;
