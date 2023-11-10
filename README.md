@@ -65,3 +65,5 @@ Styles for Dropdown:
 Positions the dropdown and styles its appearance.
 Styles for Repository Cards:
 Defines the layout and appearance of individual repository cards.
+
+Note: github block user if user exceeds the rate of 5 so due to that greater than 5 repo per page does not display the multiple languages instead only show one language.
