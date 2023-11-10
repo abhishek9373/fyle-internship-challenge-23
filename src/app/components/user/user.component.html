@@ -54,7 +54,10 @@
       <ng-template #noDescription>
         <p id="repo-description">No description available.</p>
       </ng-template>
-      <div class="repo-languages-container" *ngIf="repo.language">
+      <div class="repo-languages-container">
+        <div class="repo-language" *ngFor="let lang of repo.languages">{{lang}}</div>
+      </div>
+      <div class="repo-languages-container" #elseBlock *ngIf="!repo.languages">
         <div class="repo-language">{{repo.language}}</div>
       </div>
       <div class="repo-info">

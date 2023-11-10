@@ -24,7 +24,7 @@ export interface Repo {
     type: string;
     site_admin: boolean;
   };
-  languages?: {};
+  languages?: string[];
   html_url: string;
   description: string | null;
   fork: boolean;

@@ -102,7 +102,7 @@ export class UserComponent implements OnInit {
   private fetchRepositories() {
     this.loading = true; // Set loading to true when fetching repos
     this.userRepoService
-      .getRepositoriesOfTheUser(this.userName, this.page, this.perPage)
+      .getRepositoriesWithLanguages(this.userName, this.page, this.perPage)
       .subscribe((repos: Repo[]) => {
         this.repos = repos;
         this.loading = false; // Set loading to false after fetching repos
