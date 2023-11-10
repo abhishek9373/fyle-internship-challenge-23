@@ -1,43 +1,67 @@
-# Fyle Frontend Challenge
+Documentation For Challenge
 
-## Who is this for?
 
-This challenge is meant for candidates who wish to intern at Fyle and work with our engineering team. The candidate should be able to commit to at least 6 months of dedicated time for internship.
+1. User Component (user.component.ts and user.component.html):
 
-## Why work at Fyle?
+Responsibility:
 
-Fyle is a fast-growing Expense Management SaaS product. We are ~40 strong engineering team at the moment. 
+Display user information and repositories.
+Handle user input, fetch data, and update the UI.
+Key Code Parts:
 
-We are an extremely transparent organization. Check out our [careers page](https://careers.fylehq.com) that will give you a glimpse of what it is like to work at Fyle. Also, check out our Glassdoor reviews [here](https://www.glassdoor.co.in/Reviews/Fyle-Reviews-E1723235.htm). You can read stories from our teammates [here](https://stories.fylehq.com).
+ngOnInit() method:
 
-## Challenge outline
+Fetches user data and repositories when the component initializes.
+Retrieves username from the route parameters.
+changePage(newPage: number) method:
+Updates the current page and fetches repositories accordingly.
 
-This challenge involves implementing application using github api. 
+goBack() method:
+Navigates back to the username entry page.
 
-The services that you need to use are already implemented - check out ApiService.
+fetchRepositories() method:
+Fetches repositories based on the current username, page, and perPage values.
 
-You can see details of this challenge [here](https://fyleuniverse.notion.site/fyleuniverse/Fyle-Frontend-development-challenge-cb5085e5e0864e769e7b98c694400aaa)
+changePerPage() method:
+Updates the perPage value and fetches repositories accordingly.
 
-__Note__ - This challenge is in angular. We work on angular frameworks & after you join we expect the same from you. Hence it is required to complete this assignement in angular itself.
+HTML Template (user.component.html):
+Displays user information, repository cards, and pagination controls.
+Includes a dropdown for selecting repositories per page.
 
-## What happens next?
+2. User Service (user.service.ts):
+Responsibility:
+Handles communication with the GitHub API to fetch user data.
 
-You will hear back within 48 hours from us via email.
+Code Parts:
+getUserByUserName(username: string) method:
+Fetches user data based on the provided username.
 
-## Installation
+3. User Repository Service (user-repository.service.ts):
+Responsibility:
+Extends the User Service to fetch repositories specifically.
 
-1. Fork this repository to your github account.
-2. Clone the forked repository and proceed with steps mentioned below.
+Key Code Parts:
+getRepositoriesOfTheUser(username: string, page: number, perPage: number) method:
+Fetches repositories for a user with pagination support.
 
-### Install requirements
-* Install angular cli [Ref](https://angular.io/cli)
-* `npm install` in this repository 
+4. Pagination Controls (pagination-controls.component.ts):
+Responsibility:
+Provides pagination controls for navigating between repository pages.
 
-## Development server
+Key Code Parts:
 
-Run `ng serve` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+(pageChange) event:
+Emits the new page number when a user clicks on a different page.
 
-## Further help
+5. CSS Styling (styles.scss and user.component.scss):
+Responsibility:
+Defines styles for user interface components.
 
-Visit the [Angular Documentation](https://angular.io/guide/styleguide) to learn more.
-Styling is to be strictly done with [Tailwind](https://tailwindcss.com/docs/installation).
+Key Code Parts:
+Styles for User Container:
+Aligns user information and dropdown.
+Styles for Dropdown:
+Positions the dropdown and styles its appearance.
+Styles for Repository Cards:
+Defines the layout and appearance of individual repository cards.
